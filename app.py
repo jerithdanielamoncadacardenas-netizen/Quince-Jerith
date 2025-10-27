@@ -30,6 +30,22 @@ def upload_to_drive(filepath, filename):
         fields='id'
     ).execute()
 
+def list_drive_files():
+    """Devuelve una lista de URLs públicas de las imágenes en la carpeta del Drive."""
+    results = service.files().list(
+        q=f"'{DRIVE_FOLDER_ID}' in parents and trashed=false",
+        fields="files(id, name, mimeType)"
+    ).execute()
+
+    files = results.get('files', [])
+    image_urls = []
+    for file in files:
+        if file["mimeType"].startswith("image/"):
+            image_urls.append(f"https://drive.google.com/uc?id={file['id']}")
+        elif file["mimeType"].startswith("video/"):
+            image_urls.append(f"https://drive.google.com/file/d/{file['id']}/preview")
+    return image_urls
+
 def index():
     if request.method == 'POST':
         files = request.files.getlist('file')
@@ -46,4 +62,5 @@ def index():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
+
 
