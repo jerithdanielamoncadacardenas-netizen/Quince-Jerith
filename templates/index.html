@@ -3,20 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Quince Jerith - Galería</title>
-    <a href="https://drive.google.com/drive/folders/11iZx3uyaOatF9ee1SuY2E7T9FcwTKx5G?usp=sharing" 
-       target="_blank"
-       style="display:inline-block;
-              background-color:#ff69b4;
-              color:white;
-              padding:12px 20px;
-              border-radius:10px;
-              font-weight:bold;
-              text-decoration:none;
-              margin-top:10px;
-              box-shadow:0 0 10px rgba(255,105,180,0.5);">
-       📤 Subir fotos a la carpeta de Drive
-    </a>
-
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <style>
         /* --- Fondo y estilos base --- */
@@ -29,17 +15,17 @@
             color: #fff;
             text-align: center;
             margin: 0;
-            padding-top: 150px; /* 👈 Esto también baja todo el contenido */
+            padding-top: 150px; /* baja todo el contenido */
         }
 
         .container {
             background: rgba(0, 0, 0, 0.6);
-            margin: 200px auto 50px auto; /* ↑ ↑ ↑ empuja hacia abajo */
+            margin: 200px auto 50px auto;
             padding: 10px 30px;
             border-radius: 15px;
-            width: 60%;/* más delgado */
-            max-width: 600%;/* límite máximo */
-            height: auto; /* se ajusta al contenido */
+            width: 60%;
+            max-width: 600%;
+            height: auto;
         }
 
         h1 {
@@ -47,12 +33,24 @@
             margin-bottom: 10px;
         }
 
-        form {
-            margin: 20px 0;
+        /* --- Botón de Drive --- */
+        .drive-btn {
+            display: inline-block;
+            background-color: #ff69b4;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 15px 0;
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+            transition: all 0.3s ease;
         }
 
-        input[type="file"] {
-            margin-bottom: 10px;
+        .drive-btn:hover {
+            background-color: #ff1493;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
+            transform: scale(1.05);
         }
 
         button {
@@ -91,18 +89,6 @@
             object-fit: cover;
         }
 
-        .delete-btn {
-            position: absolute;
-            bottom: 5px;
-            right: 5px;
-            background: rgba(255, 0, 0, 0.7);
-            border: none;
-            border-radius: 5px;
-            padding: 5px 8px;
-            color: white;
-            cursor: pointer;
-        }
-
         .preview-item {
             display: inline-block;
             margin: 10px;
@@ -118,6 +104,14 @@
     <div class="container">
         <h1>Quince Jerith - Galería</h1>
 
+        <!-- 🔗 Botón para abrir la carpeta de Drive -->
+        <a href="https://drive.google.com/drive/folders/11iZx3uyaOatF9ee1SuY2E7T9FcwTKx5G?usp=sharing"
+           target="_blank"
+           class="drive-btn">
+           📤 Subir fotos a la carpeta de Drive
+        </a>
+
+        <!-- 🩷 Formulario para subir archivos -->
         <form action="/" method="POST" enctype="multipart/form-data">
             <input type="file" id="file-input" name="file" multiple accept="image/*,video/*">
             <button type="submit">📤 Subir archivo</button>
@@ -129,10 +123,10 @@
         <div class="gallery">
             {% for file in files %}
                 <div class="image-container">
-                    {% if file.endswith(('.mp4', '.webm', '.mov')) %}
-                        <video src="{{ url_for('uploaded_file', filename=file) }}" controls></video>
+                    {% if '.google.com/file/' in file %}
+                        <iframe src="{{ file }}" width="180" height="160" allow="autoplay"></iframe>
                     {% else %}
-                        <img src="{{ url_for('uploaded_file', filename=file) }}" alt="{{ file }}">
+                        <img src="{{ file }}" alt="foto" loading="lazy">
                     {% endif %}
                 </div>
             {% endfor %}
@@ -163,5 +157,7 @@
     </script>
 </body>
 </html>
+
+
 
 
