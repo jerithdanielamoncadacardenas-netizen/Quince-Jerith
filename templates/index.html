@@ -134,10 +134,6 @@
                     {% else %}
                         <img src="{{ url_for('uploaded_file', filename=file) }}" alt="{{ file }}">
                     {% endif %}
-                    <form action="{{ url_for('delete_file', filename=file) }}" method="POST">
-                        <input type="password" name="password" placeholder="Contraseña" required>
-                        <button type="submit" class="delete-btn">🗑</button>
-                    </form>
                 </div>
             {% endfor %}
         </div>
@@ -167,4 +163,5 @@
     </script>
 </body>
 </html>
+
 
