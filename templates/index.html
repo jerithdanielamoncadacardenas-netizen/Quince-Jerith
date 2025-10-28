@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Quince Jerith - Galería</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <style>
         /* --- Fondo y estilos base --- */
         body {
-            background: url("{{ url_for('static', filename='Jerith1.gif') }}") center center fixed;
+            background: url("static/Jerith1.gif") center center fixed;
             background-repeat: no-repeat;
             background-size: cover;
             font-family: 'Roboto', Times New Roman;
@@ -18,119 +17,9 @@
         }
 
         .container {
-            background: rgba(0, 0, 0, 0.6);
-            margin: 200px auto 50px auto;
-            padding: 10px 30px;
-            border-radius: 15px;
-            width: 60%;
-            max-width: 800px;
-            height: auto;
-        }
+            background: rgba
 
-        h1 {
-            font-size: 2.2em;
-            margin-bottom: 10px;
-        }
 
-        /* --- Botón principal --- */
-        .drive-btn {
-            display: inline-block;
-            background-color: #ff69b4;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 10px;
-            font-weight: bold;
-            text-decoration: none;
-            margin: 15px 0;
-            box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
-            transition: all 0.3s ease;
-        }
-
-        .drive-btn:hover {
-            background-color: #ff1493;
-            box-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
-            transform: scale(1.05);
-        }
-
-        input[type="file"] {
-            margin: 10px 0;
-            color: #fff;
-        }
-
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .preview-item {
-            display: inline-block;
-            margin: 10px;
-        }
-
-        .preview-item img,
-        .preview-item video {
-            width: 150px;
-            border-radius: 10px;
-            object-fit: cover;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Quince Jerith - Galería</h1>
-
-        <!-- 🔗 Botón para abrir el álbum de Google Fotos -->
-        <a href="https://photos.app.goo.gl/Ux2QRueznDkxtNCD8"
-           target="_blank"
-           class="drive-btn">
-           💖 Ver o subir fotos al álbum
-        </a>
-
-        <!-- 🩷 Vista previa local (opcional) -->
-        <input type="file" id="file-input" multiple accept="image/*,video/*">
-        <div id="preview"></div>
-
-        <h2>📸 Galería</h2>
-        <div class="gallery">
-            {% for file in files %}
-                <div class="image-container">
-                    {% if '.google.com/file/' in file %}
-                        <iframe src="{{ file }}" width="180" height="160" allow="autoplay"></iframe>
-                    {% else %}
-                        <img src="{{ file }}" alt="foto" loading="lazy">
-                    {% endif %}
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-
-    <script>
-        // Vista previa local sin subir al servidor
-        const input = document.getElementById('file-input');
-        const preview = document.getElementById('preview');
-
-        input.addEventListener('change', () => {
-            preview.innerHTML = '';
-            for (const file of input.files) {
-                const reader = new FileReader();
-                reader.onload = e => {
-                    const div = document.createElement('div');
-                    div.classList.add('preview-item');
-                    if (file.type.startsWith('video/')) {
-                        div.innerHTML = `<video src="${e.target.result}" controls></video><p>${file.name}</p>`;
-                    } else {
-                        div.innerHTML = `<img src="${e.target.result}" alt="${file.name}"><p>${file.name}</p>`;
-                    }
-                    preview.appendChild(div);
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-    </script>
-</body>
-</html>
 
 
 
