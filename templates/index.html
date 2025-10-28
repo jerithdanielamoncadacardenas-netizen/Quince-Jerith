@@ -17,7 +17,70 @@
         }
 
         .container {
-            background: rgba
+            background: rgba(0, 0, 0, 0.6);
+            margin: 200px auto 50px auto;
+            padding: 20px 30px;
+            border-radius: 15px;
+            width: 60%;
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        /* --- Botones --- */
+        .btn {
+            display: inline-block;
+            background-color: #ff69b4;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 15px 10px;
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ff1493;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
+            transform: scale(1.05);
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            height: 500px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💖 Galería de los 15 de Jerith 💖</h1>
+        <p>Sube y mira todas las fotos de la fiesta en nuestro álbum colaborativo.</p>
+
+        <!-- 🔗 Botón directo a tu álbum de Google Fotos -->
+        <a href="https://photos.app.goo.gl/tu_enlace_aqui"
+           target="_blank"
+           class="btn">
+           📸 Ver y subir fotos
+        </a>
+
+        <!-- 🖼️ Previsualización embebida del álbum (opcional) -->
+        <iframe 
+            src="https://photos.app.goo.gl/Ux2QRueznDkxtNCD8"
+            allowfullscreen>
+        </iframe>
+    </div>
+</body>
+</html>
+
+
 
 
 
