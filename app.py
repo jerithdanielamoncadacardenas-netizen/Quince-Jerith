@@ -3,6 +3,7 @@ import os
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
+import json
 
 app = Flask(__name__)
 
@@ -14,10 +15,10 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 # ID de tu carpeta de Google Drive 📁
 DRIVE_FOLDER_ID = "11iZx3uyaOatF9ee1SuY2E7T9FcwTKx5G"
 
-# Cargar credenciales del archivo JSON
+# Cargar credenciales desde la variable de entorno
 SCOPES = ['https://www.googleapis.com/auth/drive']
-creds = service_account.Credentials.from_service_account_file(
-    'credentials.json', scopes=SCOPES)
+creds_info = json.loads(os.getenv('GOOGLE_CREDENTIALS'))
+creds = service_account.Credentials.from_service_account_info(creds_info, scopes=SCOPES)
 service = build('drive', 'v3', credentials=creds)
 
 # Función para subir a Drive
@@ -75,6 +76,7 @@ def index():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
+
 
 
 
