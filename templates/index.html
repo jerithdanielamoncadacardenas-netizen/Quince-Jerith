@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Quince Jerith - Galería</title>
     <style>
-        /* 🎨 Fondo general y fuente del sitio */
+        /* --- Fondo general --- */
         body {
             background: url("static/Jerith1.gif") center center fixed;
             background-repeat: no-repeat;
@@ -13,51 +13,50 @@
             color: #fff;
             text-align: center;
             margin: 0;
-            padding-top: 0; /* 🔧 Puedes aumentar este valor si quieres separar más desde arriba */
-            height: 100vh; /* ocupa toda la pantalla */
+
+            /* 🔧 Distribuye el contenido: texto arriba, cuadro abajo */
             display: flex;
             flex-direction: column;
-            align-items: center; /* centra horizontalmente */
-            justify-content: flex-end; /* 🔼 cambia a 'center' para centrar verticalmente */
+            justify-content: space-between; /* espacio entre arriba y abajo */
+            height: 100vh; /* ocupa toda la altura visible */
         }
 
-        /* 🩶 Cuadro gris translúcido */
-        .container {
-            background: rgba(0, 0, 0, 0.6); /* 🔧 cambia 0.6 por otro valor: 0.3 = más transparente, 0.9 = más oscuro */
-            
-            /* 📏 Control de tamaño */
-            width: 60%;         /* 🔧 ajusta el ancho (porcentaje o píxeles) */
-            max-width: 800px;   /* 🔧 límite máximo en píxeles */
-            min-width: 300px;   /* 🔧 límite mínimo (opcional) */
-            height: auto;       /* 🔧 cambia a “400px” si quieres altura fija */
+        /* --- Texto superior --- */
+        .top-text {
+            margin-top: 30px;
+            font-size: 1.8em;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255,255,255,0.6);
+        }
 
-            /* 📍 Control de posición */
-            margin-top: 0px;   /* 🔧 separa el cuadro desde arriba */
-            margin-bottom: 60px;
+        /* --- Cuadro inferior --- */
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            margin: 0 auto 40px auto; /* centrado y con margen inferior */
             padding: 30px 40px;
             border-radius: 20px;
+            width: 60%;
+            max-width: 800px;
             box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
         }
 
-        /* 💖 Título principal */
         h1 {
             font-size: 2.3em;
             margin-bottom: 10px;
         }
 
-        /* 📜 Subtítulo / descripción */
         p {
             font-size: 1.1em;
             margin-bottom: 25px;
         }
 
-        /* 🔘 Botón rosado */
+        /* --- Botón principal --- */
         .btn {
             display: inline-block;
             background-color: #a4c2f4;
             color: white;
             padding: 14px 35px;
-            border-radius: 16px;
+            border-radius: 12px;
             font-weight: bold;
             text-decoration: none;
             margin: 10px;
@@ -65,44 +64,34 @@
             transition: all 0.3s ease;
         }
 
-        /* 💫 Efecto hover */
         .btn:hover {
             background-color: #ff1493;
             transform: scale(1.07);
             box-shadow: 0 0 25px rgba(255, 105, 180, 0.8);
         }
-
-        /* 🔤 Texto superior tipo "entra a mi web" */
-        .header-text {
-            font-size: 1.5em;
-            margin-top: 20px;
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 10px 25px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-        }
     </style>
 </head>
 <body>
-    <!-- 🪧 Texto arriba -->
-    <div class="header-text">
-         ¡Entra en mi web para ver la galería completa!
+    <!-- 🔝 Texto arriba -->
+    <div class="top-text">
+         ¡Entra a mi web para compartir y ver la galeria de fotos!
     </div>
 
-    <!-- 💖 Cuadro principal -->
+    <!-- 🔽 Cuadro abajo -->
     <div class="container">
         <h1> Galería de los 15 de Jerith </h1>
         <p>Sube y mira todas las fotos de la fiesta en nuestro álbum colaborativo de Google Fotos.</p>
 
-        <!-- 🔗 Enlace real al álbum -->
         <a href="https://photos.app.goo.gl/Ux2QRueznDkxtNCD8"
            target="_blank"
            class="btn">
-           📸 Ver y subir fotos
+            Ver y subir fotos
         </a>
     </div>
 </body>
 </html>
+
+
 
 
 
