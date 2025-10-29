@@ -11,7 +11,7 @@
         
         /* --- Fondo general --- */
         body {
-            background: url("static/Jerith (1).gif") center center fixed;
+            background: url("static/Jerith (1).gif") center center fixed;/* ✅ renombrar el fondo */
             background-repeat: no-repeat;
             background-size: cover;
             font-family: 'Roboto', 'Times New Roman', serif; /* 👈 fuente combinada */
@@ -27,15 +27,16 @@
             height: 100vh; /* ocupa toda la altura visible */
         }
 
-        /* --- Texto superior --- */
+        /* --- Texto superior (letrero)--- */
         .top-text {
             margin-top: 30px;
             display: inline-block;
-            background: rgba(0, 0, 0, 0.6); /* 👈 color y opacidad del fondo */
-            padding: 10px 25px; /* 👈 tamaño del recuadro */
+            background: rgba(0, 0, 0, 0.6); /* 👈 color y opacidad del fondo superior */
+            padding: 10px 25px; /* 👈 tamaño del recuadro del texto */
             border-radius: 15px; /* 👈 bordes redondeados */
             font-size: 1.8em;
             font-weight: bold;
+            color: #ffffff; /* 🎨 color del texto superior */
             box-shadow: 0 0 15px rgba(255, 255, 255, 255); /* 👈 efecto brillante */
             text-shadow: 0 0 10px rgba(255,255,255,0.8);
             margin-left: auto;
@@ -45,10 +46,10 @@
         /* --- Cuadro inferior --- */
         .container {
             background: rgba(0, 0, 0, 0.6);
-            margin: 300px auto 40px auto; /* centrado y con margen inferior */
+            margin: 300px auto 40px auto; /* centrado y con margen inferior (ajustes) */
             padding: 30px 40px;
             border-radius: 20px;
-            width: 60%;
+            width: 60%; /* 📏 ancho del cuadro */
             max-width: 800px;
             box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
         }
@@ -70,8 +71,8 @@
         /* --- Botón principal --- */
         .btn {
             display: inline-block;
-            background-color: #a4c2f4;
-            color: #021524;
+            background-color: #a4c2f4;/* 🎨 color de fondo */
+            color: #021524;/* 🎨 color del texto */
             padding: 14px 35px;
             border-radius: 12px;
             font-weight: bold;
@@ -83,8 +84,8 @@
 
         /* 💅 Efecto al pasar el mouse */
         .btn:hover {
-            background-color: #021524;
-            color: #a4c2f4;
+            background-color: #021524;/* 🎨 color al pasar el mouse */
+            color: #a4c2f4;/* 🎨 color del texto al pasar */
             transform: scale(1.07);
             box-shadow: 0 0 25px rgba(255, 255, 255, 255);
         }
@@ -92,10 +93,37 @@
         .btn:active,
         .btn:focus { /* 👈 esto mantiene el color incluso si abre otra pestaña */
             background-color: #021524; /* fondo celeste */
-            color: #ffffff; /* texto blanco */
+            color: #ffffff; /* 🎨 texto al hacer clic */
+            text-shadow: 0 0 8px #a4c2f4; /* ✨ brillo del texto */
             transform: scale(0.95);
             box-shadow: 0 0 25px rgba(255, 255, 255, 255);
             outline: none;
+        }
+         /* 📱 Ajuste automático para celulares y tablets */
+        @media (max-width: 768px) {
+            .top-text {
+                font-size: 1.2em;
+                padding: 8px 15px;
+                margin-top: 15px;
+            }
+
+            .container {
+                width: 85%;
+                padding: 20px;
+                margin: 15vh auto 5vh auto;
+            }
+            h1 {
+                font-size: 1.6em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
         }
     </style>
 </head>
@@ -118,6 +146,7 @@
     </div>
 </body>
 </html>
+
 
 
 
