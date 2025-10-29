@@ -60,9 +60,33 @@
             font-weight: 700;
             margin-bottom: 10px;
             color: white; /*Color galeria de Jerith */
-            box-shadow: 0 0 15px rgba(255, 255, 255, 255); /* 👈 efecto brillante */
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #ff69b4,
+                0 0 20px #ff69b4,
+                0 0 40px #ff69b4,
+                0 0 80px #ff1493;
+            animation: glow 2s ease-in-out infinite alternate;/* 👈 efecto brillante */
         }
-
+        /* 💫 Animación suave del brillo */
+        @keyframes glow {
+            from {
+                text-shadow:
+                    0 0 5px #fff,
+                    0 0 10px #ff69b4,
+                    0 0 20px #ff69b4,
+                    0 0 40px #ff1493,
+                    0 0 80px #ff1493;
+            }
+            to {
+                text-shadow:
+                    0 0 10px #fff,
+                    0 0 20px #ffb6c1,
+                    0 0 30px #ff69b4,
+                    0 0 50px #ff1493,
+                    0 0 100px #ff69b4;
+            }
+        }
         p {
             font-family: 'Roboto', 'Times New Roman', serif;
             font-size: 1.1em;
@@ -148,6 +172,7 @@
     </div>
 </body>
 </html>
+
 
 
 
